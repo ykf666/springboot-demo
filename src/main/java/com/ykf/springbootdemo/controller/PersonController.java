@@ -1,7 +1,10 @@
 package com.ykf.springbootdemo.controller;
 
 import com.ykf.springbootdemo.entity.Person;
+import com.ykf.springbootdemo.entity.Result;
 import com.ykf.springbootdemo.repository.PersonRepository;
+import com.ykf.springbootdemo.service.PersonService;
+import com.ykf.springbootdemo.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -19,18 +22,20 @@ public class PersonController {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private PersonService personService;
+
     @GetMapping(value = "/persons")
     public List<Person> listPerson() {
         return personRepository.findAll();
     }
 
     @PostMapping(value = "/persons")
-    public Person add(@Valid Person person, BindingResult bindingResult) {
+    public Result<Person> add(@Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
-        return personRepository.save(person);
+        return ResultUtil.success(personRepository.save(person));
     }
 
     @GetMapping(value = "/persons/{id}")
@@ -55,8 +60,18 @@ public class PersonController {
         personRepository.delete(person);
     }
 
+    @GetMapping(value = "/persons/insert2")
+    public void insertTwo(){
+        personService.insertTwo();
+    }
+
     @GetMapping(value = "/persons/age/{age}")
     public List<Person> findByAge(@PathVariable("age") Integer age){
         return personRepository.findByAge(age);
+    }
+
+    @GetMapping(value = "/persons/getAge/{id}")
+    public void getAge(@PathVariable Integer id) throws Exception {
+        personService.getAge(id);
     }
 }
