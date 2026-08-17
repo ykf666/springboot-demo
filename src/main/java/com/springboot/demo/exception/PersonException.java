@@ -1,4 +1,4 @@
-package com.ykf.springbootdemo.exception;
+package com.springboot.demo.exception;
 
 /**
  * @author yan.kefei

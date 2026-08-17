@@ -1,7 +1,7 @@
-package com.ykf.springbootdemo;
+package com.springboot.demo;
 
-import com.ykf.springbootdemo.entity.Person;
-import com.ykf.springbootdemo.service.PersonService;
+import com.springboot.demo.entity.Person;
+import com.springboot.demo.service.PersonService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

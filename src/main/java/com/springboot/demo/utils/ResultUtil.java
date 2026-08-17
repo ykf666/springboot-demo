@@ -1,6 +1,6 @@
-package com.ykf.springbootdemo.utils;
+package com.springboot.demo.utils;
 
-import com.ykf.springbootdemo.entity.Result;
+import com.springboot.demo.entity.Result;
 
 /**
  * @author yan.kefei

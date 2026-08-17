@@ -1,5 +1,15 @@
 server:
-  port: 8080
+  port: 28080
 person:
   age: 15
   name: jack
+
+spring:
+  application:
+    name: demo
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        post: 8722
+        clientIp: localhost

@@ -1,9 +1,10 @@
-package com.ykf.springbootdemo;
+package com.springboot.demo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
+ * 配置参数传入，读取配置文件person配置字段值
  * @author yan.kefei
  * @date 2018/5/13 23:51
  */

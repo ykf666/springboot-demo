@@ -1,6 +1,6 @@
-package com.ykf.springbootdemo.repository;
+package com.springboot.demo.repository;
 
-import com.ykf.springbootdemo.entity.Person;
+import com.springboot.demo.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

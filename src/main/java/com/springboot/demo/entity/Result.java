@@ -1,4 +1,4 @@
-package com.ykf.springbootdemo.entity;
+package com.springboot.demo.entity;
 
 import lombok.Data;
 

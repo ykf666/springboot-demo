@@ -1,8 +1,8 @@
-package com.ykf.springbootdemo.handler;
+package com.springboot.demo.handler;
 
-import com.ykf.springbootdemo.entity.Result;
-import com.ykf.springbootdemo.exception.PersonException;
-import com.ykf.springbootdemo.utils.ResultUtil;
+import com.springboot.demo.entity.Result;
+import com.springboot.demo.exception.PersonException;
+import com.springboot.demo.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author yan.kefei
+ * 统一异常处理
  * @date 2018/7/4 23:15
  */
 @ControllerAdvice

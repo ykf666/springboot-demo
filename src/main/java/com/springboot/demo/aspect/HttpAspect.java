@@ -1,4 +1,4 @@
-package com.ykf.springbootdemo.aspect;
+package com.springboot.demo.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -20,7 +20,7 @@ public class HttpAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
-    @Pointcut("execution(* com.ykf.springbootdemo.controller.*.*(..))")
+    @Pointcut("execution(* com.springboot.demo.controller.*.*(..))")
     public void log() {
     }
 
