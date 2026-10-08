@@ -1,17 +1,15 @@
 package com.springboot.demo.service;
 
 import com.springboot.demo.entity.Person;
-import com.springboot.demo.exception.PersonException;
+import com.springboot.demo.exception.ServiceException;
 import com.springboot.demo.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -72,9 +70,9 @@ public class PersonService {
     public void getAge(Integer id) {
         Person person = personRepository.getById(id);
         if (person.getAge() < 10) {
-            throw new PersonException(100, "还没上小学吧");
+            throw new ServiceException(100, "还没上小学吧");
         } else if (person.getAge() >= 10 && person.getAge() < 16) {
-            throw new PersonException(101, "在上初中吧");
+            throw new ServiceException(101, "在上初中吧");
         } else {
             // 略
         }

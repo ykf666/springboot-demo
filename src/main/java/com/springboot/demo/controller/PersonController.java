@@ -1,10 +1,10 @@
 package com.springboot.demo.controller;
 
+import com.springboot.demo.annotation.CommonResp;
 import com.springboot.demo.entity.Person;
-import com.springboot.demo.entity.Result;
+import com.springboot.demo.exception.ServiceException;
 import com.springboot.demo.repository.PersonRepository;
 import com.springboot.demo.service.PersonService;
-import com.springboot.demo.utils.ResultUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +22,7 @@ import java.util.List;
 @RestController
 @Tag(name = "人员管理")
 @Slf4j
+@CommonResp
 public class PersonController {
 
     @Autowired
@@ -38,11 +39,11 @@ public class PersonController {
 
     @PostMapping(value = "/persons")
     @Operation(summary = "新增用户")
-    public Result<Person> add(@Valid Person person, BindingResult bindingResult) {
+    public Person add(@Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
-            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
+            throw new ServiceException(1, bindingResult.getFieldError().getDefaultMessage());
         }
-        return ResultUtil.success(personRepository.save(person));
+        return personRepository.save(person);
     }
 
     @GetMapping(value = "/persons/{id}")
